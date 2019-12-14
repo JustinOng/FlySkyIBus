@@ -106,3 +106,8 @@ uint16_t FlySkyIBus::readChannel(uint8_t channelNr)
     return 0;
   }
 }
+
+bool FlySkyIBus::is_alive(void)
+{
+  return (millis() - last) < PROTOCOL_TIMEOUT;
+}

@@ -14,6 +14,7 @@ public:
   void begin(Stream& stream);
   void loop(void);
   uint16_t readChannel(uint8_t channelNr);
+  bool is_alive(void);
 
 private:
   enum State
@@ -30,6 +31,7 @@ private:
   static const uint8_t PROTOCOL_TIMEGAP = 3; // Packets are received very ~7ms so use ~half that for the gap
   static const uint8_t PROTOCOL_CHANNELS = 10;
   static const uint8_t PROTOCOL_COMMAND40 = 0x40; // Command is always 0x40
+  static const uint8_t PROTOCOL_TIMEOUT = 10;
 
   uint8_t state;
   Stream* stream;
